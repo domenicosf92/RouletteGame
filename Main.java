@@ -62,13 +62,14 @@ public class Main {
                     System.out.println(player);
                     break;
                 case 3:
-                    System.out.print("Color admitted: \n-Red \n-Black");
+                    System.out.println("Color admitted: \n-Red \n-Black");
+                    System.out.println("Color: ");
                     typeOfBet = s.next();
-                    System.out.print("Insert bet: ");
+                    System.out.println("Insert bet: ");
                     bet= s.nextInt();
                     try {
-                        if (roulette.checkOddOrEven(player, typeOfBet, bet)) {
-                            System.out.println("You win " + bet * 10 + "€");
+                        if (roulette.checkByColor(player, typeOfBet, bet)) {
+                            System.out.println("You win " + bet * 9 + "€");
                         } else {
                             System.out.println("You lose " + bet + "€");
                         }

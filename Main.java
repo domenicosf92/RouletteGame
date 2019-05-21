@@ -18,6 +18,7 @@ public class Main {
         System.out.print("Player credit: ");
         playerCredit = s.nextInt();
         Player player = new Player(playerName, playerCredit);
+        System.out.println(roulette);
         do {
             System.out.println("-- Welcome to " + casinoName + " --" + "\nRoulette game\n");
             System.out.println("1. Bet on numbers \n2. Bet on Odd or Even numbers \n3. Bet on color Red or Black \n0. Exit ");

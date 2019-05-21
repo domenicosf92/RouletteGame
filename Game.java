@@ -87,13 +87,23 @@ public class Game {
 
     @Override
     public String toString() {
-        String s= "Game: \n\n";
+        String s= "Game roulette: \n-R: RED\n-B: BLACK\n-G: GREEN\n\n";
         for (int i=0; i < this.roulette.length; i++) {
             for (int j = 0; j < 7; j++) {
-                if (this.roulette[i][j]== -1) {
+                if (this.roulette[i][j]<10 && (this.roulette[i][j]== 1 || this.roulette[i][j]== 3 || this.roulette[i][j]== 5 || this.roulette[i][j]== 7 || this.roulette[i][j] == 9)){
+                    s += "|\t " + this.roulette[i][j] + ": R\t|";
+                } else if (this.roulette[i][j]<10 && (this.roulette[i][j]== 2 || this.roulette[i][j]== 4 || this.roulette[i][j]== 6 || this.roulette[i][j]== 8)){
+                    s += "|\t " + this.roulette[i][j] + ": B\t|";
+                } else if (this.roulette[i][j]== -1) {
                     s += "";
-                } else{
-                    s += "|\t" + this.roulette[i][j] + "\t|";
+                } else if (this.roulette[i][j] == 12 || this.roulette[i][j] == 14 || this.roulette[i][j] == 16 || this.roulette[i][j] == 18 || this.roulette[i][j] == 19 || this.roulette[i][j] == 21 || this.roulette[i][j] == 23 ||
+                        this.roulette[i][j] == 25 || this.roulette[i][j] == 27 || this.roulette[i][j] == 30 || this.roulette[i][j] == 32 || this.roulette[i][j] == 34 || this.roulette[i][j] == 36){
+                    s+= "|\t" + this.roulette[i][j] + ": R\t|";
+                } else if (this.roulette[i][j] == 10 || this.roulette[i][j] == 11 || this.roulette[i][j] == 13 || this.roulette[i][j] == 15 || this.roulette[i][j] == 17 || this.roulette[i][j] == 20 || this.roulette[i][j] == 22 || this.roulette[i][j] == 24 ||
+                        this.roulette[i][j] == 26 || this.roulette[i][j] == 28 || this.roulette[i][j] == 29 || this.roulette[i][j] == 31 || this.roulette[i][j] == 33 || this.roulette[i][j] == 35 || this.roulette[i][j] == 37) {
+                    s += "|\t" + this.roulette[i][j] + ": B\t|";
+                } else {
+                    s += "|\t " + this.roulette[i][j] + ": G\t|";
                 }
             }
             s+= "\n";

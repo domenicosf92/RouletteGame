@@ -2,8 +2,8 @@ package com.company;
 
 public class Game {
     private int [][] roulette = new int[6][7];
-    private int [] red = new int[]  {1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36};
-    private int [] black = new int[]{2,4,6,8,10,11,13,15,17,20,22,24,26,28,29,31,33,35};
+    private int [] red = new int[]  {1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36};
+    private int [] black = new int[]{2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35};
     private String name;
     private int counter=0;
     private int credit;
@@ -52,14 +52,17 @@ public class Game {
         player.removeCredit(bet);
         this.credit += bet;
         if (!typeOfBet.equalsIgnoreCase("Odd") && (!typeOfBet.equalsIgnoreCase("Even"))) throw new Exception("Wrong insert");
+        if(this.random() == 0) {
+            return false;
+        }
         if (typeOfBet.equalsIgnoreCase("Odd") && (this.random() % 2 == 0)) {
-            this.credit -= bet * 10;
-            player.addCredit(bet * 10);
+            this.credit -= bet * 2;
+            player.addCredit(bet * 2);
             return true;
         } else
             if (typeOfBet.equalsIgnoreCase("Even")  && (this.random() % 2 != 0)){
-                this.credit -= bet * 10;
-                player.addCredit(bet * 10);
+                this.credit -= bet * 2;
+                player.addCredit(bet * 2);
                 return true;
             }
         return false;
@@ -72,13 +75,13 @@ public class Game {
         if (!color.equalsIgnoreCase("Red") && (!color.equalsIgnoreCase("Black"))) throw new Exception("Wrong insert");
         for (int i=0; i< this.red.length; i++){
             if (color.equalsIgnoreCase("Red") && (this.red[i] == extractedNumber)){
-                this.credit -= bet * 9;
-                player.addCredit(bet * 9);
+                this.credit -= bet * 2;
+                player.addCredit(bet * 2);
                 return true;
             }
             if (color.equalsIgnoreCase("Black") && (this.black[i] == extractedNumber)){
-                this.credit -= bet * 9;
-                player.addCredit(bet * 9);
+                this.credit -= bet * 2;
+                player.addCredit(bet * 2);
                 return true;
             }
         }
